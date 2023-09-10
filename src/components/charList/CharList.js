@@ -21,6 +21,7 @@ class CharList extends Component {
     }
 
     updateChars = () => {
+        this.onCharLoading();
         this.marvelService.getAllCharacters()
             .then(this.onCharsLoaded)
             .catch(this.onError);
@@ -30,6 +31,12 @@ class CharList extends Component {
         this.setState({
             chars: chars,
             loading: false,
+        })
+    }
+
+    onCharLoading = () => {
+        this.setState({
+            loading: true
         })
     }
 
@@ -48,7 +55,7 @@ class CharList extends Component {
             }
             return (
                 <li
-                    className="char__item" key={item.id}>
+                    className="char__item" key={item.id} onClick={() => this.props.onCharSelecterd(item.id)}>
                     <img src={item.thumbnail} alt={item.name} style={imgStyle} />
                     <div className="char__name">{item.name}</div>
                 </li>
