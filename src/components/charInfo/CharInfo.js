@@ -49,14 +49,14 @@ class CharInfo extends Component {
 
     onCharLoading = () => {
         this.setState({
-            loading: true
+            loading: true,
         });
     }
 
     onError = () => {
         this.setState({
             error: true,
-            loading: false
+            loading: false,
         });
     }
 
@@ -110,7 +110,7 @@ const View = ({ char }) => {
             </div>
             <div className="char__comics">Comics:</div>
             <ul className="char__comics-list">
-                {comics.length > 0 ? null: "Comics not found..."}
+                {comics.length > 0 ? null : "Comics not found..."}
                 {
                     comics.map((item, index) => {
                         if (index > 9) {
