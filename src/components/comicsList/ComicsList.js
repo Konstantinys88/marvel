@@ -2,7 +2,16 @@ import './comicsList.scss';
 import uw from '../../resources/img/UW.png';
 import xMen from '../../resources/img/x-men.png';
 
+import MarvelService from '../../services/MarvelService';
+
 const ComicsList = () => {
+
+    //тестовый вывод в консоль
+    const { getAllCommics } = MarvelService();
+    getAllCommics().then(res => console.log(res.data.results));
+
+
+
     return (
         <div className="comics__list">
             <ul className="comics__grid">

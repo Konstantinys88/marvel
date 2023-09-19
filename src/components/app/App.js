@@ -11,6 +11,7 @@ import AppBanner from "../appBanner/AppBanner";
 
 import decoration from '../../resources/img/vision.png';
 
+
 const App = () => {
 
     const [selectedChar, setChar] = useState(null);
@@ -18,6 +19,8 @@ const App = () => {
     const onCharSelected = (id) => {
         setChar(id);
     }
+
+
 
     return (
         <div className="app">

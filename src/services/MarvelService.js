@@ -30,7 +30,25 @@ const MarvelService = () => {
         }
     }
 
-    return { loading, error, getAllCharacters, getCharacter, clearError }
+    //commics my
+
+    const getResourse = async (url) => {
+        let res = await fetch(url);
+        if (!res.ok) {
+            throw new Error('Error');
+        }
+        return await res.json();
+    }
+
+    const getAllCommics = () => {
+        return getResourse(`https://gateway.marvel.com:443/v1/public/comics?limit=8&offset=210&apikey=c2cc01f8db8cc03a2c3a5e6e7cd4849f`);
+    }
+
+
+
+
+
+    return { loading, error, getAllCharacters, getCharacter, clearError, getAllCommics }
 }
 
 
