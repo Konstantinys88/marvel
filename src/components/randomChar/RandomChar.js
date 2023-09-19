@@ -9,38 +9,20 @@ import { useState, useEffect } from 'react';
 
 const RandomChar = () => {
 
-    const [char, setChar] = useState(null);
-    const [loading, setLoading] = useState(true);
-    const [error, setError] = useState(false);
-
-    const marvelService = new MarvelService();
+    const [char, setChar] = useState({});
+    const { loading, error, getCharacter } = MarvelService();
 
     useEffect(() => {
         updateChar();
     }, []);
 
-
-    const onError = () => {
-        setError(true);
-        setLoading(false);
-    }
-
     const onCharLoaded = (char) => {
         setChar(char);
-        setLoading(false);
-    }
-
-    const onCharLoading = () => {
-        setLoading(true);
     }
 
     const updateChar = () => {
         const id = Math.floor(Math.random() * (1011400 - 1011000) + 1011000);
-        onCharLoading();
-        marvelService
-            .getCharacter(id)
-            .then(onCharLoaded)
-            .catch(onError);
+        getCharacter(id).then(onCharLoaded);
     }
 
     const errorMessage = error ? <ErrorMessage /> : null;
@@ -100,3 +82,5 @@ const View = ({ char }) => {
 }
 
 export default RandomChar;
+
+
