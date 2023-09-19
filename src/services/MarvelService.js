@@ -2,15 +2,13 @@ import { useHttp } from "../hooks/http.hook";
 
 const MarvelService = () => {
 
-    const { loading, request, error } = useHttp();
+    const { loading, request, error, clearError } = useHttp();
 
     const _apiBase = `https://gateway.marvel.com:443/v1/public/`;
     const _apiKey = `apikey=c2cc01f8db8cc03a2c3a5e6e7cd4849f`;
     const _baseOffset = 200;
 
     const getAllCharacters = async (offset = _baseOffset) => {
-        // const interval = Math.floor(Math.random() * (101 - 210) + 101);
-
         const res = await request(`${_apiBase}characters?limit=9&offset=${offset}&${_apiKey}`);
         return res.data.results.map(_transformCharacter);
     }
@@ -32,8 +30,7 @@ const MarvelService = () => {
         }
     }
 
-    return { loading, error, getAllCharacters, getCharacter }
-
+    return { loading, error, getAllCharacters, getCharacter, clearError }
 }
 
 

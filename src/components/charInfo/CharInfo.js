@@ -13,7 +13,7 @@ const CharInfo = (props) => {
 
     const [char, setChar] = useState(null);
 
-    const { loading, error, getCharacter } = MarvelService();
+    const { loading, error, getCharacter, clearError } = MarvelService();
 
     useEffect(() => {
         updateChar();
@@ -24,6 +24,7 @@ const CharInfo = (props) => {
         if (!charId) {
             return;
         }
+        clearError();
         getCharacter(charId).then(onCharLoaded);
     }
 
