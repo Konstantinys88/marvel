@@ -25,11 +25,11 @@ const App = () => {
     return (
         <div className="app">
 
-            <AppBanner />
-            <ComicsList />
+            {/* <AppBanner />
+            <ComicsList /> */}
 
 
-            {/* <AppHeader />
+            <AppHeader />
             <main>
                 <ErrorBoundary>
                     <RandomChar />
@@ -43,7 +43,7 @@ const App = () => {
                     </ErrorBoundary>
                 </div>
                 <img className="bg-decoration" src={decoration} alt="vision" />
-            </main> */}
+            </main>
         </div>
     )
 }
