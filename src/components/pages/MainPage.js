@@ -8,6 +8,8 @@ import CharSearchForm from "../charSearchForm/CharSearchForm";
 
 import decoration from '../../resources/img/vision.png';
 
+import { Helmet } from "react-helmet";
+
 const MainPage = () => {
 
     const [selectedChar, setChar] = useState(null);
@@ -18,6 +20,14 @@ const MainPage = () => {
 
     return (
         <>
+            <Helmet>
+                <meta
+                    name="description"
+                    content="Marvel information portal"
+                />
+                <title>Marvel information</title>
+            </Helmet>
+
             <ErrorBoundary>
                 <RandomChar />
             </ErrorBoundary>
@@ -27,7 +37,7 @@ const MainPage = () => {
                 </ErrorBoundary>
                 <div>
                     <ErrorBoundary>
-                        <CharInfo charId={selectedChar}/>
+                        <CharInfo charId={selectedChar} />
                     </ErrorBoundary>
                     {/* <ErrorBoundary>
                         <CharSearchForm/>
